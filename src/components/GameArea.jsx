@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import winSong from "../assets/winsong.mp3"
 
 export default function GameArea() {
 
     let [answer, setAnswer] = useState(null);
     let [options, SetOptions] = useState([]);
     let [showAnswer, setShowAnswer] = useState(false);
-    let [winner, setWinner] = useState(false)    
+    let [winner, setWinner] = useState(false);
+    let [audio, setAudio] = useState();   
 
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -44,13 +46,21 @@ export default function GameArea() {
 
     let handleAnswer = (event) => {
         setShowAnswer(true);
-        if (event.target.value == answer)
+        if (event.target.value == answer){
             setWinner(true);
+            setAudio(new Audio(winSong));
+        }
+            
     }
+
+    useEffect(()=>{
+        if (audio) audio.play();
+    }, [audio]);
 
     let handleReset = () => {
         setShowAnswer(false);
         setWinner(false);
+        (audio)?audio.pause():null;
         generateColorString();
     }
 
