@@ -57,7 +57,7 @@ export default function GameArea() {
   return (
     <div className='flex-col size-fit p-5 my-10 border-4 border-slate-900 justify-center items-center'>
         <div className='size-60 border-4 border-slate-900' style={{backgroundColor : answer}}></div>
-        <div className='flex justify-between my-10'>
+        <div className='flex justify-between my-5'>
             <button 
             className={`border-4 ${(showAnswer)? null : `hover:bg-yellow-600`} p-5
             ${(showAnswer)?(options[0] == answer)?`border-green-700 bg-green-500`: `border-red-700 bg-red-500`: `border-slate-900`}`}
@@ -67,7 +67,7 @@ export default function GameArea() {
             ${(showAnswer)?(options[1] == answer)?`border-green-700 bg-green-500`: `border-red-700 bg-red-500`: `border-slate-900`}`}
             onClick={(showAnswer)? null : handleAnswer} value={options[1]}>{options[1]}</button>            
         </div>
-        <div className='flex justify-between  my-3'>
+        <div className='flex justify-between my-1'>
             <button 
             className={`border-4 ${(showAnswer)? null : `hover:bg-yellow-600`} p-5 
             ${(showAnswer)?(options[2] == answer)?`border-green-700 bg-green-500`: `border-red-700 bg-red-500`: `border-slate-900`}`}
